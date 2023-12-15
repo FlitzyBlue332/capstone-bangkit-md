@@ -1,5 +1,18 @@
 <resources>
     <string name="app_name">Sinari</string>
+
     <string name="app_name_capslock">SINARI</string>
     <string name="app_description">SOLUSI NETRALISIR INFORMASI</string>
+    <string name="title">Judul Berita</string>
+    <string name="berita_tidak_ditemukan">Berita tidak ditemukan</string>
+    <string name="cari_berita">Cari Berita</string>
+    <string name="favorite">Tambahkan ke daftar favorit</string>
+    <string name="login_button">Login</string>
+    <string name="register_button">Register</string>
+    <string name="readmore">Readmore</string>
+    <string name="search">Masukkan kata pencarian...</string>
+
+
+
+
 </resources>
