@@ -1,4 +1,4 @@
-package com.capstone.sinari.activity
+package com.capstone.sinari.view.favorite
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

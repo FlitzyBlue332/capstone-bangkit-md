@@ -1,8 +1,9 @@
-package com.capstone.sinari.activity
+package com.capstone.sinari.view.detailnews
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.capstone.sinari.view.favorite.FavoriteActivity
 import com.capstone.sinari.databinding.ActivityBiasBinding
 
 class BiasActivity : AppCompatActivity() {

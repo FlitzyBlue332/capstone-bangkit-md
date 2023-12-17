@@ -1,4 +1,4 @@
-package com.capstone.sinari.data.model
+package com.capstone.sinari.view.newslist
 
 data class NewsItem(
     val imageResource: Int,
