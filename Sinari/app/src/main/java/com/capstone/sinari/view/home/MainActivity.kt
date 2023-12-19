@@ -43,11 +43,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun setTopicListData() {
         val adapter = TopicAdapter()
-        viewModel.listNewsItem.observe(this) {listNewsItem ->
-            if (listNewsItem != null){
-                adapter.submitData(lifecycle, listNewsItem)
+        viewModel.listTopicItem.observe(this) {listTopicItem ->
+            if (listTopicItem != null){
+                adapter.submitData(lifecycle, listTopicItem)
             }
-            Log.d("MainActivity2", "listNewsItem: ${listNewsItem}")
+            Log.d("MainActivity2", "listTopicItem: ${listTopicItem}")
         }
         binding.rvTopic.adapter = adapter
     }

@@ -15,7 +15,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="170dp"
+        android:layout_height="wrap_content"
         android:padding="8dp"
         android:background="@color/background_item">
 
@@ -34,28 +34,27 @@
         <TextView
             android:id="@+id/title"
             android:layout_width="225dp"
-            android:layout_height="32dp"
-            android:layout_marginTop="4dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:background="@color/background_item"
             android:fontFamily="sans-serif-black"
-            android:textSize="22sp"
             android:maxLines="3"
+            android:textSize="22sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintEnd_toStartOf="@+id/imageNews"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Judul Berita" />
 
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="363dp"
-            android:layout_height="11dp"
-            android:layout_marginTop="124dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/matric" />
+<!--        <ImageView-->
+<!--            android:id="@+id/imageView3"-->
+<!--            android:layout_width="363dp"-->
+<!--            android:layout_height="11dp"-->
+<!--            android:layout_marginTop="124dp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:srcCompat="@drawable/matric" />-->
 
 <!--        <TextView-->
 <!--            android:id="@+id/location"-->
@@ -80,23 +79,20 @@
 <!--            app:layout_constraintTop_toBottomOf="@+id/imageView3"-->
 <!--            tools:text="source" />-->
 
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="17dp"
-            android:layout_height="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="4dp"
-            app:layout_constraintEnd_toEndOf="@+id/imageNews"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3"
-            app:srcCompat="@drawable/baseline_menu" />
+<!--        <ImageView-->
+<!--            android:id="@+id/imageView4"-->
+<!--            android:layout_width="17dp"-->
+<!--            android:layout_height="16dp"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:layout_marginEnd="4dp"-->
+<!--            app:layout_constraintEnd_toEndOf="@+id/imageNews"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:srcCompat="@drawable/baseline_menu" />-->
 
         <ImageView
             android:id="@+id/imagenext"
             android:layout_width="20dp"
             android:layout_height="18dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/imageView3"
             app:layout_constraintEnd_toEndOf="@+id/imageNews"
             app:layout_constraintTop_toBottomOf="@+id/imageNews"
             app:layout_constraintVertical_bias="1.0"
@@ -106,23 +102,22 @@
             android:id="@+id/readmore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="28dp"
-            android:layout_marginBottom="4dp"
             android:fontFamily="@font/keania_one"
             android:text="@string/readmore"
-            android:textSize="10sp"
-            app:layout_constraintBottom_toTopOf="@+id/imageView3"
-            app:layout_constraintEnd_toEndOf="@+id/imagenext" />
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imagenext"
+            app:layout_constraintEnd_toStartOf="@+id/imagenext"
+            app:layout_constraintTop_toTopOf="@id/imagenext" />
 
-        <TextView
-            android:id="@+id/source"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            tools:text="Sumber"
-            android:fontFamily="@font/racing_sans_one"
-            app:layout_constraintBottom_toTopOf="@+id/imageView3"
-            app:layout_constraintStart_toStartOf="@+id/imageView3" />
+<!--        <TextView-->
+<!--            android:id="@+id/source"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginBottom="16dp"-->
+<!--            tools:text="Sumber"-->
+<!--            android:fontFamily="@font/racing_sans_one"-->
+<!--            app:layout_constraintBottom_toTopOf="@+id/imageView3"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/imageView3" />-->
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

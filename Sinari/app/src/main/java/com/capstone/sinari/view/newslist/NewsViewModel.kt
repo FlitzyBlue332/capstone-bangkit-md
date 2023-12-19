@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 
 class NewsViewModel(private val repository: NewsRepository) : ViewModel() {
     private val _listItem = MutableLiveData<List<NewsItem>>()
-    private val listItem: LiveData<List<NewsItem>> = _listItem
+    val listItem: LiveData<List<NewsItem>> = _listItem
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading : LiveData<Boolean> = _isLoading

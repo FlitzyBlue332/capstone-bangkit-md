@@ -16,9 +16,6 @@
         android:theme="@style/Theme.Sinari"
         tools:targetApi="31">
         <activity
-            android:name=".view.newslist.NewsListActivity"
-            android:exported="false" />
-        <activity
             android:name=".view.splash.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
@@ -36,10 +33,15 @@
             android:parentActivityName=".view.home.MainActivity"></activity>
         <activity
             android:name=".view.detailnews.BiasActivity"
-            android:exported="true"></activity>
+            android:exported="true"
+            android:parentActivityName=".view.home.MainActivity"></activity>
         <activity
             android:name=".view.favorite.FavoriteActivity"
             android:exported="true"></activity>
+        <activity
+            android:name=".view.newslist.NewsListActivity"
+            android:exported="false"
+            android:parentActivityName=".view.home.MainActivity"/>
 
         <meta-data
             android:name="preloaded_fonts"

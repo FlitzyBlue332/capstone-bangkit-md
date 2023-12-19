@@ -16,7 +16,7 @@ class MainViewModel(private val repository: NewsRepository) : ViewModel() {
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading : LiveData<Boolean> = _isLoading
 
-    val listNewsItem: LiveData<PagingData<TopicItem>> = repository.getHeadlinesPager().cachedIn(viewModelScope)
+    val listTopicItem: LiveData<PagingData<TopicItem>> = repository.getHeadlinesPager().cachedIn(viewModelScope)
 
 //    init {
 //        getTopicList()

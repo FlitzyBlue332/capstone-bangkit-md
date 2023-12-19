@@ -1,6 +1,7 @@
 package com.capstone.sinari.view.newslist
 
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
@@ -45,14 +46,14 @@ class NewsAdapter: ListAdapter<NewsItem, NewsAdapter.NewsViewHolder>(DIFF_CALLBA
 
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
         val currentItem = getItem(position)
-
         holder.binding.apply {
             holder.binding.title.text = currentItem.title
             holder.binding.source.text = currentItem.publisherName
         }
-        Glide.with(holder.itemView.context)
-            .load(currentItem.thumbnail)
-            .into(holder.binding.imageView)
+        Glide.with(holder.itemView.context).apply {
+            load(currentItem.publisherLogo).into(holder.binding.ivPublisher)
+            load(currentItem.thumbnail).into(holder.binding.ivNewsList)
+        }
 
         holder.itemView.setOnClickListener {
             val intentDetail = Intent(holder.itemView.context, BiasActivity::class.java)

@@ -1,5 +1,6 @@
 package com.capstone.sinari.view.detailtopic
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Build
@@ -11,6 +12,7 @@ import com.capstone.sinari.R
 import com.capstone.sinari.data.response.TopicItem
 import com.capstone.sinari.databinding.ActivityTopicBinding
 import com.capstone.sinari.view.ViewModelFactory
+import com.capstone.sinari.view.newslist.NewsListActivity
 import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
@@ -45,10 +47,12 @@ class TopicActivity : AppCompatActivity() {
         }
 
         setupView(topic!!)
+        setupAction(topic)
 
         setSupportActionBar(binding.topAppBar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
+
     private fun setupView(topicItem: TopicItem) {
         val topic = topicItem.topic
         binding.judul.text = topic.title
@@ -63,8 +67,12 @@ class TopicActivity : AppCompatActivity() {
 
     }
 
-    private fun setupAction(){
-
+    private fun setupAction(topicItem: TopicItem){
+        binding.btShowNews.setOnClickListener {
+            val intentList = Intent(this, NewsListActivity::class.java)
+            intentList.putExtra(NewsListActivity.EXTRA_REFERER, topicItem.referrer)
+            startActivity(intentList)
+        }
     }
 
     private fun setupPieChart(){
