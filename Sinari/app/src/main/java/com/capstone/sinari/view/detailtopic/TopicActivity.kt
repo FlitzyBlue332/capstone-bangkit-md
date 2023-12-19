@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
@@ -13,6 +14,7 @@ import com.capstone.sinari.data.response.TopicItem
 import com.capstone.sinari.databinding.ActivityTopicBinding
 import com.capstone.sinari.view.ViewModelFactory
 import com.capstone.sinari.view.newslist.NewsListActivity
+import com.github.mikephil.charting.components.YAxis
 import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
@@ -24,9 +26,6 @@ import com.github.mikephil.charting.formatter.PercentFormatter
 import com.github.mikephil.charting.utils.MPPointF
 
 class TopicActivity : AppCompatActivity() {
-    private val viewModel by viewModels<DetailTopicViewModel> {
-        ViewModelFactory.getInstance(this)
-    }
     private lateinit var binding: ActivityTopicBinding
 
     companion object {
@@ -76,6 +75,10 @@ class TopicActivity : AppCompatActivity() {
     }
 
     private fun setupPieChart(){
+        val left = 80f
+        val neutral = 10f
+        val right = 10f
+
         binding.pcTopic.setUsePercentValues(true)
         binding.pcTopic.setExtraOffsets(5f, 10f, 5f, 5f)
         binding.pcTopic.description.isEnabled = false
@@ -86,9 +89,9 @@ class TopicActivity : AppCompatActivity() {
 
         // data
         val entries: ArrayList<PieEntry> = ArrayList()
-        entries.add(PieEntry(80f))
-        entries.add(PieEntry(10f))
-        entries.add(PieEntry(10f))
+        entries.add(PieEntry(left)) // left
+        entries.add(PieEntry(neutral)) // neutral
+        entries.add(PieEntry(right)) // right
 
         // setting pie data set
         val dataSet = PieDataSet(entries, "Neutrality")
@@ -113,16 +116,24 @@ class TopicActivity : AppCompatActivity() {
     }
 
     private fun setupBarChart(){
+        val objectivity = 40f
+        val positiveBias = 100f
+
         // set data
         val barEntriesList: ArrayList<BarEntry> = ArrayList()
-        barEntriesList.add(BarEntry(2f, 10f)) // subjektivitas
-        barEntriesList.add(BarEntry(1f, 100f)) // bias
+        barEntriesList.add(BarEntry(2f, objectivity)) // subjektivitas
+        barEntriesList.add(BarEntry(1f, positiveBias)) // bias
         val barDataSet = BarDataSet(barEntriesList, "Bar Chart Data")
         val barData = BarData(barDataSet)
+        binding.hbcTopic.data = barData
+
 
 
         // set up barchart
-        binding.hbcTopic.data = barData
+        binding.hbcTopic.xAxis.setDrawLabels(false)
+        binding.hbcTopic.axisLeft.axisMinimum = 0f
+        binding.hbcTopic.axisLeft.axisMaximum = 100f
+
 
         // color
         val colors: ArrayList<Int> = ArrayList()

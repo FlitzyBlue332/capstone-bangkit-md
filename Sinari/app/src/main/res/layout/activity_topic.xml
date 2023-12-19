@@ -32,7 +32,7 @@
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/appBarLayout"
-        android:text="Topik Berita" />
+        android:text="Headline" />
 
     <ImageView
         android:id="@+id/imagenews"
@@ -58,6 +58,7 @@
 
     <TextView
         android:id="@+id/description"
+        android:textColor="@color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"

@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.capstone.sinari.data.NewsRepository
 import com.capstone.sinari.di.Injection
-import com.capstone.sinari.view.detailtopic.DetailTopicViewModel
 import com.capstone.sinari.view.home.MainViewModel
 import com.capstone.sinari.view.newslist.NewsViewModel
 
@@ -15,9 +14,6 @@ class ViewModelFactory(private val repository: NewsRepository) : ViewModelProvid
         return when {
             modelClass.isAssignableFrom(MainViewModel::class.java) -> {
                 MainViewModel(repository) as T
-            }
-            modelClass.isAssignableFrom(DetailTopicViewModel::class.java) -> {
-                DetailTopicViewModel(repository) as T
             }
             modelClass.isAssignableFrom(NewsViewModel::class.java) -> {
                 NewsViewModel(repository) as T
