@@ -11,9 +11,13 @@ import com.capstone.sinari.R
 import com.capstone.sinari.data.response.TopicItem
 import com.capstone.sinari.databinding.ActivityTopicBinding
 import com.capstone.sinari.view.ViewModelFactory
+import com.github.mikephil.charting.data.BarData
+import com.github.mikephil.charting.data.BarDataSet
+import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.github.mikephil.charting.formatter.PercentFormatter
 import com.github.mikephil.charting.utils.MPPointF
 
@@ -55,6 +59,7 @@ class TopicActivity : AppCompatActivity() {
             .into(binding.imagenews)
 
         setupPieChart()
+        setupBarChart()
 
     }
 
@@ -69,11 +74,12 @@ class TopicActivity : AppCompatActivity() {
         binding.pcTopic.dragDecelerationFrictionCoef = 0.95f
         binding.pcTopic.isDrawHoleEnabled = false
         binding.pcTopic.isRotationEnabled = false
+        binding.pcTopic.legend.isEnabled = false
 
         // data
         val entries: ArrayList<PieEntry> = ArrayList()
-        entries.add(PieEntry(70f))
-        entries.add(PieEntry(20f))
+        entries.add(PieEntry(80f))
+        entries.add(PieEntry(10f))
         entries.add(PieEntry(10f))
 
         // setting pie data set
@@ -96,6 +102,30 @@ class TopicActivity : AppCompatActivity() {
         data.setValueTypeface(Typeface.DEFAULT_BOLD)
         data.setValueTextColor(Color.BLACK)
         binding.pcTopic.data = data
+    }
+
+    private fun setupBarChart(){
+        // set data
+        val barEntriesList: ArrayList<BarEntry> = ArrayList()
+        barEntriesList.add(BarEntry(2f, 10f)) // subjektivitas
+        barEntriesList.add(BarEntry(1f, 100f)) // bias
+        val barDataSet = BarDataSet(barEntriesList, "Bar Chart Data")
+        val barData = BarData(barDataSet)
+
+
+        // set up barchart
+        binding.hbcTopic.data = barData
+
+        // color
+        val colors: ArrayList<Int> = ArrayList()
+        colors.add(resources.getColor(R.color.red, theme))
+        colors.add(resources.getColor(R.color.purple, theme))
+        barDataSet.colors = colors
+
+
+        barDataSet.valueTextSize = 16f
+        binding.description.isEnabled = false
+        binding.hbcTopic.legend.isEnabled = false
     }
 
 }

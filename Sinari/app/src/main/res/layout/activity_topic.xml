@@ -95,8 +95,58 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/TextAppearance.Material3.TitleLarge"
-                android:textSize="18sp"
                 android:text="Statistik"/>
+
+            <TextView
+                style="@style/TextAppearance.MaterialComponents.Subtitle1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:paddingStart="16dp"
+                android:paddingTop="32dp"
+                android:text="Subjektifitas dan Bias"
+                android:textSize="18sp" />
+
+            <com.github.mikephil.charting.charts.HorizontalBarChart
+                android:id="@+id/hbcTopic"
+                android:layout_width="300dp"
+                android:layout_height="300dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/ic_circle"
+                android:drawableTint="@color/red"
+                android:padding="4dp"
+                android:text="Objektif"
+                android:textAlignment="center"
+                android:background="@drawable/back_text"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/ic_circle"
+                android:drawableTint="@color/purple"
+                android:padding="4dp"
+                android:text="Bias Positif"
+                android:textAlignment="center"
+                android:background="@drawable/back_text"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
 
             <TextView
                 style="@style/TextAppearance.MaterialComponents.Subtitle1"
@@ -118,7 +168,9 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:weightSum="3"
-                android:gravity="center">
+                android:gravity="center"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp">
 
                 <TextView
                     android:layout_width="0dp"
@@ -131,7 +183,6 @@
                     android:text="Kiri"
                     android:textAlignment="center"
                     android:background="@drawable/back_text"
-
                     android:textColor="@color/black"/>
 
                 <TextView

@@ -50,6 +50,7 @@ class TopicAdapter: PagingDataAdapter<TopicItem, TopicAdapter.TopicViewHolder>(D
 
         holder.binding.apply {
             holder.binding.title.text = topic.title
+            holder.binding.source.text = topic.publisherName
         }
         Glide.with(holder.itemView.context)
             .load(topic.thumbnail)
