@@ -8,7 +8,10 @@ import retrofit2.http.Query
 
 interface ApiService {
     @GET("headlines")
-    suspend fun getTopic(): TopicResponse
+    suspend fun getTopic(
+        @Query("page") page: Int = 1,
+        @Query("limit") limit: Int = 20
+    ): TopicResponse
 
     @GET("headlines/{referer}")
     suspend fun getNews(

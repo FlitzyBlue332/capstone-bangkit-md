@@ -91,4 +91,10 @@ dependencies {
     implementation("com.google.dagger:hilt-android:2.38.1")
     implementation("com.airbnb.android:lottie:4.2.2")
     kapt ("com.google.dagger:hilt-android-compiler:2.38.1")
+
+    // Paging
+    implementation("androidx.paging:paging-runtime-ktx:3.1.0")
+
+    // chart
+    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
 }

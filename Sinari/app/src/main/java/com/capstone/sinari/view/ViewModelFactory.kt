@@ -7,6 +7,7 @@ import com.capstone.sinari.data.NewsRepository
 import com.capstone.sinari.di.Injection
 import com.capstone.sinari.view.detailtopic.DetailTopicViewModel
 import com.capstone.sinari.view.home.MainViewModel
+import com.capstone.sinari.view.newslist.NewsViewModel
 
 class ViewModelFactory(private val repository: NewsRepository) : ViewModelProvider.NewInstanceFactory() {
     @Suppress("UNCHECKED_CAST")
@@ -17,6 +18,9 @@ class ViewModelFactory(private val repository: NewsRepository) : ViewModelProvid
             }
             modelClass.isAssignableFrom(DetailTopicViewModel::class.java) -> {
                 DetailTopicViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(NewsViewModel::class.java) -> {
+                NewsViewModel(repository) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

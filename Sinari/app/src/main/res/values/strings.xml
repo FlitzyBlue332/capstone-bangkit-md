@@ -11,8 +11,7 @@
     <string name="register_button">Register</string>
     <string name="readmore">Readmore</string>
     <string name="search">Masukkan kata pencarian...</string>
-
-
+    <string name="dummy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed facilisis mi ac urna congue interdum ut ut arcu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque mollis ante sed eros bibendum volutpat. Nulla in est nec leo ultricies congue quis vitae mauris. Nam id felis mattis, lobortis neque at, finibus nisi. Aenean bibendum interdum erat sed efficitur. Aenean porttitor ante suscipit risus molestie feugiat. Cras tincidunt felis elit, malesuada ullamcorper sapien pretium non.</string>
 
 
 </resources>

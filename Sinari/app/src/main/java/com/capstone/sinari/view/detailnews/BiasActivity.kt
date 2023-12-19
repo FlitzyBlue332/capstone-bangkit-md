@@ -10,6 +10,10 @@ class BiasActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityBiasBinding
 
+    companion object {
+        const val EXTRA_NEWS = "extra_news"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityBiasBinding.inflate(layoutInflater)

@@ -25,10 +25,14 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // set item list data
-        viewModel.listItem.observe(this) {itemlist ->
-            setTopicListData(itemlist)
+        // show loading
+        viewModel.isLoading.observe(this) {isLoading ->
+            showLoading(isLoading)
         }
+
+        // set item list data
+        setTopicListData()
+
 
         val layoutManager = LinearLayoutManager(this)
         val itemDecoration = DividerItemDecoration(this, layoutManager.orientation)
@@ -37,29 +41,32 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun setTopicListData(listItem: List<TopicItem>) {
+    private fun setTopicListData() {
         val adapter = TopicAdapter()
-        adapter.submitList(listItem)
-        Log.d("check_list", "${adapter.itemCount}")
+        viewModel.listNewsItem.observe(this) {listNewsItem ->
+            if (listNewsItem != null){
+                adapter.submitData(lifecycle, listNewsItem)
+            }
+            Log.d("MainActivity2", "listNewsItem: ${listNewsItem}")
+        }
         binding.rvTopic.adapter = adapter
     }
 
-    private fun dummydata() {
-        val testTopic = Topic(
-            "https://static.wikia.nocookie.net/mrfz/images/1/14/Schwarz.png/revision/latest/scale-to-width-down/1000?cb=20210913141154",
-            "bandung",
-            "publisher",
-            "https://static.wikia.nocookie.net/mrfz/images/1/14/Schwarz.png/revision/latest/scale-to-width-down/1000?cb=20210913141154",
-            "schawrz sayang",
-            "sayangkuh",
-            "https://arknights.fandom.com/wiki/Schwarz"
-        )
-        val testItem = TopicItem("sayang", testTopic)
-        var listItem: List<TopicItem> = listOf(testItem)
-
-        setTopicListData(listItem)
-
-    }
+//    private fun dummydata() {
+//        val testTopic = Topic(
+//            "https://static.wikia.nocookie.net/mrfz/images/1/14/Schwarz.png/revision/latest/scale-to-width-down/1000?cb=20210913141154",
+//            "bandung",
+//            "publisher",
+//            "https://static.wikia.nocookie.net/mrfz/images/1/14/Schwarz.png/revision/latest/scale-to-width-down/1000?cb=20210913141154",
+//            "schawrz sayang",
+//            "sayangkuh",
+//            "https://arknights.fandom.com/wiki/Schwarz"
+//        )
+//        val testItem = TopicItem("sayang", testTopic)
+//        var listItem: List<TopicItem> = listOf(testItem)
+//
+//        setTopicListData(listItem)
+//    }
 
     private fun showLoading(isLoading: Boolean){
         if (isLoading) {
