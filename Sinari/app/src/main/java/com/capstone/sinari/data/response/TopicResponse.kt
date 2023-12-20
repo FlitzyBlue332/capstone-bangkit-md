@@ -40,11 +40,40 @@ data class Topic(
 ) : Parcelable
 
 @Parcelize
+data class Avg(
+
+	@field:SerializedName("left_tendency")
+	val leftTendency: Float,
+
+	@field:SerializedName("subjectivity")
+	val subjectivity: Float,
+
+	@field:SerializedName("bias")
+	val bias: Float,
+
+	@field:SerializedName("right_tendency")
+	val rightTendency: Float,
+
+	@field:SerializedName("center_tendency")
+	val centerTendency: Float
+) : Parcelable
+
+@Parcelize
+data class AggregateMetrics(
+
+	@field:SerializedName("_avg")
+	val avg: Avg
+) : Parcelable
+
+@Parcelize
 data class TopicItem(
 
 	@field:SerializedName("referrer")
 	val referrer: String,
 
 	@field:SerializedName("headline")
-	val topic: Topic
+	val topic: Topic,
+
+	@field:SerializedName("aggregateMetrics")
+	val aggregateMetrics: AggregateMetrics
 ) : Parcelable

@@ -127,7 +127,7 @@
                     android:drawableLeft="@drawable/ic_circle"
                     android:drawableTint="@color/red"
                     android:padding="4dp"
-                    android:text="Objektif"
+                    android:text="Subjektivitas"
                     android:textAlignment="center"
                     android:background="@drawable/back_text"
                     android:textColor="@color/black"/>
@@ -140,7 +140,7 @@
                     android:drawableLeft="@drawable/ic_circle"
                     android:drawableTint="@color/purple"
                     android:padding="4dp"
-                    android:text="Bias Positif"
+                    android:text="Bias"
                     android:textAlignment="center"
                     android:background="@drawable/back_text"
                     android:textColor="@color/black" />
@@ -203,7 +203,7 @@
                     android:layout_margin="3dp"
                     android:layout_weight="1"
                     android:drawableLeft="@drawable/ic_circle"
-                    android:drawableTint="@color/deep_blue"
+                    android:drawableTint="@color/blue"
                     android:padding="4dp"
                     android:text="Kanan"
                     android:textAlignment="center"

@@ -55,8 +55,8 @@ class BiasActivity : AppCompatActivity() {
             .load(newsItem.thumbnail)
             .into(binding.ivImage)
 
-        setupPieChart()
-        setupBarChart()
+        setupPieChart(newsItem)
+        setupBarChart(newsItem)
     }
 
     private fun setupAction(newsItem: NewsItem){
@@ -66,10 +66,10 @@ class BiasActivity : AppCompatActivity() {
         }
     }
 
-    private fun setupPieChart(){
-        val left = 80f
-        val neutral = 10f
-        val right = 10f
+    private fun setupPieChart(newsItem: NewsItem){
+        val left = newsItem.leftTendency * 100
+        val neutral = newsItem.centerTendency * 100
+        val right = newsItem.rightTendency * 100
 
         binding.pcNews.setUsePercentValues(true)
         binding.pcNews.setExtraOffsets(5f, 10f, 5f, 5f)
@@ -96,7 +96,7 @@ class BiasActivity : AppCompatActivity() {
         val colors: ArrayList<Int> = ArrayList()
         colors.add(resources.getColor(R.color.red, theme))
         colors.add(resources.getColor(R.color.white, theme))
-        colors.add(resources.getColor(R.color.deep_blue, theme))
+        colors.add(resources.getColor(R.color.blue, theme))
         dataSet.colors = colors
 
         val data = PieData(dataSet)
@@ -107,14 +107,14 @@ class BiasActivity : AppCompatActivity() {
         binding.pcNews.data = data
     }
 
-    private fun setupBarChart(){
-        val objectivity = 40f
-        val positiveBias = 100f
+    private fun setupBarChart(newsItem: NewsItem){
+        val subjectivity = newsItem.subjectivity * 100
+        val bias = newsItem.bias * 100
 
         // set data
         val barEntriesList: ArrayList<BarEntry> = ArrayList()
-        barEntriesList.add(BarEntry(2f, objectivity)) // subjektivitas
-        barEntriesList.add(BarEntry(1f, positiveBias)) // bias
+        barEntriesList.add(BarEntry(2f, subjectivity)) // subjektivitas
+        barEntriesList.add(BarEntry(1f, bias)) // bias
         val barDataSet = BarDataSet(barEntriesList, "Bar Chart Data")
         val barData = BarData(barDataSet)
         binding.hbcNews.data = barData

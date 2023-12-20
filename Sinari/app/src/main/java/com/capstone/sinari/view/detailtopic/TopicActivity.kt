@@ -61,8 +61,8 @@ class TopicActivity : AppCompatActivity() {
             .load(topic.thumbnail)
             .into(binding.imagenews)
 
-        setupPieChart()
-        setupBarChart()
+        setupPieChart(topicItem)
+        setupBarChart(topicItem)
 
     }
 
@@ -74,10 +74,11 @@ class TopicActivity : AppCompatActivity() {
         }
     }
 
-    private fun setupPieChart(){
-        val left = 80f
-        val neutral = 10f
-        val right = 10f
+    private fun setupPieChart(topicItem: TopicItem){
+        val metrics = topicItem.aggregateMetrics.avg
+        val left = metrics.leftTendency * 100
+        val neutral = metrics.centerTendency * 100
+        val right = metrics.rightTendency * 100
 
         binding.pcTopic.setUsePercentValues(true)
         binding.pcTopic.setExtraOffsets(5f, 10f, 5f, 5f)
@@ -104,7 +105,7 @@ class TopicActivity : AppCompatActivity() {
         val colors: ArrayList<Int> = ArrayList()
         colors.add(resources.getColor(R.color.red, theme))
         colors.add(resources.getColor(R.color.white, theme))
-        colors.add(resources.getColor(R.color.deep_blue, theme))
+        colors.add(resources.getColor(R.color.blue, theme))
         dataSet.colors = colors
 
         val data = PieData(dataSet)
@@ -115,14 +116,15 @@ class TopicActivity : AppCompatActivity() {
         binding.pcTopic.data = data
     }
 
-    private fun setupBarChart(){
-        val objectivity = 40f
-        val positiveBias = 100f
+    private fun setupBarChart(topicItem: TopicItem){
+        val metrics = topicItem.aggregateMetrics.avg
+        val subjectivity = metrics.subjectivity * 100
+        val bias = metrics.bias * 100
 
         // set data
         val barEntriesList: ArrayList<BarEntry> = ArrayList()
-        barEntriesList.add(BarEntry(2f, objectivity)) // subjektivitas
-        barEntriesList.add(BarEntry(1f, positiveBias)) // bias
+        barEntriesList.add(BarEntry(2f, subjectivity)) // subjektivitas
+        barEntriesList.add(BarEntry(1f, bias)) // bias
         val barDataSet = BarDataSet(barEntriesList, "Bar Chart Data")
         val barData = BarData(barDataSet)
         binding.hbcTopic.data = barData
