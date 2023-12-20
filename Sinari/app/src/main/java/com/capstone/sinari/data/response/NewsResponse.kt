@@ -11,7 +11,10 @@ data class NewsResponse(
 	val news: List<NewsItem>? = null,
 
 	@field:SerializedName("lastUpdated")
-	val lastUpdated: String? = null
+	val lastUpdated: String? = null,
+
+	@field:SerializedName("aggregateMetrics")
+	val aggregateMetrics: AggregateMetrics
 ) : Parcelable
 
 @Parcelize
@@ -36,5 +39,21 @@ data class NewsItem(
 	val excerpt: String,
 
 	@field:SerializedName("url")
-	val url: String
+	val url: String,
+
+	@field:SerializedName("subjectivity")
+	val subjectivity: Float,
+
+	@field:SerializedName("bias")
+	val bias: Float,
+
+	@field:SerializedName("right_tendency")
+	val rightTendency: Float,
+
+	@field:SerializedName("center_tendency")
+	val centerTendency: Float,
+
+	@field:SerializedName("left_tendency")
+	val leftTendency: Float,
+
 ) : Parcelable
