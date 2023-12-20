@@ -37,12 +37,13 @@
 
         <TextView
             android:id="@+id/title"
-            style="@style/medium"
+            android:fontFamily="@font/calistoga"
+            android:textColor="@color/black"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:paddingStart="16dp"
+            android:paddingStart="18dp"
+            android:justificationMode="inter_word"
             android:maxLines="3"
-            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/iv_news_list"
             app:layout_constraintTop_toTopOf="parent"
